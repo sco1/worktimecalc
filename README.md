@@ -87,19 +87,19 @@ Request time: 1530 - 1630
 
 #### Using flags
 ```
-$ worktimecalc -s '0730' -e '1500'
+$ worktimecalc -s 0730 -e 1500
 Request 1.0 hours of leave
 Request time: 1500 - 1600
 ```
 
 ```
-$ worktimecalc -se '0730' '1500'
+$ worktimecalc -se 0730 1500
 Request 1.0 hours of leave
 Request time: 1500 - 1600
 ```
 
 ```
-$ worktimecalc -ns '0500' '1730' 1
+$ worktimecalc -ns 0500 1730 1
 Request 11.5 premium hours
 Request time: 0600 - 1730
 ```
