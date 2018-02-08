@@ -1,0 +1,12 @@
+# Virtualenvs
+venv/
+
+# IDE/Cache
+__pycache__/
+.vscode/
+
+# Builds
+*.egg-info
+build/
+dist/
+*.spec
