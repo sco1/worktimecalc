@@ -60,7 +60,7 @@ Note: Unless otherwise stated, all examples assume `worktime` has been installed
 
 #### Interactive Mode
 ```
-$ worktime -i
+$ worktimecalc -i
 Enter Start Time [0700]: 0700
 Enter End Time [1530]: 1530
 Enter workday length (decimal hours) [8.5]: 8.5
@@ -68,7 +68,7 @@ You worked exactly one full workday!
 ```
 
 ```
-$ worktime -i
+$ worktimecalc -i
 Enter Start Time [0700]: 0700
 Enter End Time [1530]: 1430
 Enter workday length (decimal hours) [8.5]: 8.5
@@ -77,7 +77,7 @@ Request time: 1430 - 1530
 ```
 
 ```
-$ worktime -i
+$ worktimecalc -i
 Enter Start Time [0700]: 0700
 Enter End Time [1530]: 1630
 Enter workday length (decimal hours) [8.5]: 8.5
@@ -87,19 +87,19 @@ Request time: 1530 - 1630
 
 ### Using flags
 ```
-$ worktime -s '0730' -e '1500'
+$ worktimecalc -s '0730' -e '1500'
 Request 1.0 hours of leave
 Request time: 1500 - 1600
 ```
 
 ```
-$ worktime -se '0730' '1500'
+$ worktimecalc -se '0730' '1500'
 Request 1.0 hours of leave
 Request time: 1500 - 1600
 ```
 
 ```
-$ worktime -ns '0500' '1730' 1
+$ worktimecalc -ns '0500' '1730' 1
 Request 11.5 premium hours
 Request time: 0600 - 1730
 ```
