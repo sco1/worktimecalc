@@ -34,7 +34,7 @@ $ pyinstaller --onefile worktimecalc.py
 ### pip
 `worktime` can also be installed to the global Python scope.
 
-After cloning or downloading this repository, `cd` to the repository directory and use `pip` to install the `worktime` CLI:
+After cloning or downloading this repository, `cd` to the repository directory and use `pip` to install the `worktimecalc` CLI:
 
 ```
 $ pip install .
@@ -53,10 +53,10 @@ $ pip install .
 |            | `--version`     | Show version information and exit          |                          |
 |            | `--help`        | Show help message and exit                 |                          |
 
-1: The interactive mode flag is set when calling the PyInstaller bundled Windows executable without any inputs
+1: The interactive mode flag is implicitly set when `worktimecalc` called without any inputs
 
 ### Examples
-Note: Unless otherwise stated, all examples assume `worktime` has been installed with `pip`
+Note: Unless otherwise stated, all examples assume `worktimecalc` has been installed with `pip`
 
 #### Interactive Mode
 ```
@@ -85,7 +85,7 @@ Request 1.0 premium hours
 Request time: 1530 - 1630
 ```
 
-### Using flags
+#### Using flags
 ```
 $ worktimecalc -s '0730' -e '1500'
 Request 1.0 hours of leave
