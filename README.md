@@ -42,16 +42,16 @@ $ pip install .
 
 ## Usage
 ### Arguments
-| Short Flag | Long Flag       | Description                                | Default         |
-| :---:      | :---            | :---                                       | :---:           |
-| `-i`       | `--interactive` | Enable interactive mode                    | Flag not set^1^ |
-| `-s`       | `--starttime`   | Start time, 24H, str                       | `'0700'`        |
-| `-e`       | `--endtime`     | End time, 24H, str                         | `'1530'`        |
-| `-wd`      | `--workday`     | Workday length, decimal hours, float       | `8.5`           |
-| `-se`      | `--startend`    | Shortcut, specify start/end time           |                 |
-| `-ns`      | `--nonstandard` | Shortcut, specify start/end time & workday |                 |
-|            | `--version`     | Show version information and exit          |                 |
-|            | `--help`        | Show help message and exit                 |                 |
+| Short Flag | Long Flag       | Description                                | Default                  |
+| :---:      | :---            | :---                                       | :---:                    |
+| `-i`       | `--interactive` | Enable interactive mode                    | Flag not set<sup>1</sup> |
+| `-s`       | `--starttime`   | Start time, 24H, str                       | `'0700'`                 |
+| `-e`       | `--endtime`     | End time, 24H, str                         | `'1530'`                 |
+| `-wd`      | `--workday`     | Workday length, decimal hours, float       | `8.5`                    |
+| `-se`      | `--startend`    | Shortcut, specify start/end time           |                          |
+| `-ns`      | `--nonstandard` | Shortcut, specify start/end time & workday |                          |
+|            | `--version`     | Show version information and exit          |                          |
+|            | `--help`        | Show help message and exit                 |                          |
 
 1: The interactive mode flag is set when calling the PyInstaller bundled Windows executable without any inputs
 
