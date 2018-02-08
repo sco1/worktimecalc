@@ -9,14 +9,18 @@ import click
 @click.option('--starttime', '-s', default='0700', help="Start time, 'HHMM'")
 @click.option('--endtime', '-e', default='1530', help="End time, 'HHMM'")
 @click.option('--workday', '-wd', default=8.5, help='Length of workday, decimal hours')
-@click.option('--timetuple', '-tt', nargs=3, help="Short circuit tuple, 'HHMM' 'HHMM' x.x")
-def cli(starttime, endtime, interactive, workday, timetuple):
+@click.option('--nonstandard', '-ns', nargs=3, help="Short circuit for nonstandard workday, 'HHMM' 'HHMM' x.x")
+@click.option('--startend', '-se', nargs=2, help="Short circuit for standard workday, 'HHMM' 'HHMM'")
+def cli(starttime, endtime, interactive, workday, nonstandard, startend):
     """
     Calculate leave/premium time based on start and end times.
     """
-    if timetuple:
-        starttime, endtime, workday = timetuple
+    if nonstandard:
+        starttime, endtime, workday = nonstandard
         workday = float(workday)
+
+    if startend:
+        starttime, endtime = startend
 
     if interactive:
         starttime = click.prompt('Enter Start Time', default=starttime)
