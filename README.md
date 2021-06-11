@@ -1,4 +1,7 @@
-[![GitHub release](https://img.shields.io/github/release/sco1/worktimecalc.svg)](https://github.com/sco1/worktimecalc/releases/latest) ![Python version](https://img.shields.io/badge/python-%3E%3D3.6-brightgreen.svg)
+[![GitHub release](https://img.shields.io/github/release/sco1/worktimecalc.svg)](https://github.com/sco1/worktimecalc/releases/latest)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sco1/worktimecalc/main.svg)](https://results.pre-commit.ci/latest/github/sco1/worktimecalc/main)
+[![lint-and-test](https://github.com/sco1/worktimecalc/actions/workflows/lint_test.yml/badge.svg?branch=main)](https://github.com/sco1/worktimecalc/actions/workflows/lint_test.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 # Worktime Calculator
 Helper CLI for calculating leave & premium hour based on the start & end of the workday.
 
@@ -7,20 +10,6 @@ Because I got sick of doing this in my head.
 Built using the [Click command line utility](https://github.com/pallets/click). Yay!
 
 ## Installation
-### venv
-After cloning or downloading this repository, initialize a virtual environment in the repository and use `pip` to install the `worktime` CLI.
-
-The following example utilizes [`virtualenv`](https://github.com/pypa/virtualenv):
-
-```
-$ pip install virtualenv
-$ virtualenv venv
-$ source ./venv/Scripts/activate
-$ pip install .
-```
-
-Note that non-Windows users will use `. venv/bin/activate` to activate the virtual environment.
-
 ### Windows executable
 Windows users can download a standalone executable from the [latest GitHub release](https://github.com/sco1/worktimecalc/releases/latest)
 
@@ -28,16 +17,16 @@ An executable can also be generated from the source with [PyInstaller](https://g
 
 ```
 $ pip install pyinstaller
-$ pyinstaller --onefile worktimecalc.py
+$ pyinstaller --onefile ./src/worktimecalc.py
 ```
 
-### pip
-`worktime` can also be installed to the global Python scope.
+### poetry
+`worktime` is intended to be installed in a virtual environment using [Poetry](https://python-poetry.org/).
 
-After cloning or downloading this repository, `cd` to the repository directory and use `pip` to install the `worktimecalc` CLI:
+After cloning or downloading this repository, `cd` to the repository directory and use `poetry` to install the `worktimecalc` CLI:
 
 ```
-$ pip install .
+$ poetry install --no-dev
 ```
 
 ## Usage
