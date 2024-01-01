@@ -13,9 +13,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
 ]
 packages = [{include = "src"},]
@@ -24,26 +25,26 @@ packages = [{include = "src"},]
 worktimecalc = "src.worktimecalc:cli"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 click = "^8.0"
 
 [tool.poetry.dev-dependencies]
-black = "^22.10"
+black = "^23.1"
 bump2version = "^1.0"
 flake8 = "^6.0"
-flake8-annotations = "^2.9"
-flake8-bugbear = "^22.10"
-flake8-docstrings = "^1.6"
+flake8-annotations = "^3.0"
+flake8-bugbear = "^23.1"
+flake8-docstrings = "^1.7"
 flake8-fixme = "^1.1"
-isort = "^5.10"
-mypy = "^0.991"
+isort = "^5.12"
+mypy = "^1.0"
 pep8-naming = "^0.13"
-pre-commit = "^2.20"
+pre-commit = "^3.0"
 pytest = "^7.2"
-pytest-check = "^1.0"
+pytest-check = "^2.1"
 pytest-cov = "^4.0"
 pytest-randomly = "^3.12"
-tox = "^4.0"
+tox = "^4.4"
 
 [tool.black]
 line-length = 100
