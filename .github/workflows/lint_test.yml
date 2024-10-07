@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install Poetry for caching
       run: pipx install poetry
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
+        python-version-file: "pyproject.toml"
         cache: 'poetry'
 
     - name: Install dependencies
@@ -40,19 +40,19 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install Poetry for caching
       run: pipx install poetry
 
     - name: Set up (release) Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       if: "!endsWith(matrix.python-version, '-dev')"
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'poetry'
 
     - name: Set up (deadsnakes) Python ${{ matrix.python-version }}
-      uses: deadsnakes/action@v3.0.0
+      uses: deadsnakes/action@v3.2.0
       if: endsWith(matrix.python-version, '-dev')
       with:
         python-version: ${{ matrix.python-version }}
@@ -66,42 +66,45 @@ jobs:
       run: tox
 
     - name: Cache coverage for ${{ matrix.python-version }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cov_py${{ matrix.python-version }}
         path: .coverage
+        if-no-files-found: error
+        include-hidden-files: true
 
   combine-cov:
     runs-on: ubuntu-latest
     needs: test
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
+        python-version-file: "pyproject.toml"
 
     - name: Pull coverage workflow artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         path: cov_cache/
 
     - name: Install cov & combine
       run: |
-        pip install coverage
+        python -m pip install coverage
         coverage combine ./cov_cache/**/.coverage
 
     - name: Report coverage
       run: |
-        echo '**Combined Coverage**' >> $GITHUB_STEP_SUMMARY
-        echo '```' >> $GITHUB_STEP_SUMMARY
-        coverage report -m --skip-covered >> $GITHUB_STEP_SUMMARY
-        echo '```' >> $GITHUB_STEP_SUMMARY
         coverage html
 
+        # Report a markdown version to the action summary
+        echo '**Combined Coverage**' >> $GITHUB_STEP_SUMMARY
+        coverage report --format=markdown >> $GITHUB_STEP_SUMMARY
+
     - name: Publish cov HTML
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         path: htmlcov/
         name: cov_report_html
