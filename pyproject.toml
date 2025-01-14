@@ -1,12 +1,15 @@
-[tool.poetry]
-name = "worktime-calc"
+[project]
+name = "worktimecalc"
 version = "1.1.0"
 description = "Helper CLI for calculating leave & premium hour based on the start & end of the workday."
-authors = ["sco1 <sco1.git@gmail.com>"]
+authors = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
+maintainers = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
 
 readme = "README.md"
-homepage = "https://github.com/sco1/"
-repository = "https://github.com/sco1/worktimecalc"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: End Users/Desktop",
@@ -19,35 +22,47 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
 ]
-packages = [{include = "src"},]
 
-[tool.poetry.scripts]
-worktimecalc = "src.worktimecalc:cli"
+requires-python = ">=3.11"
+dependencies = [
+    "click~=8.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-click = "^8.0"
+[project.urls]
+Homepage = "https://github.com/sco1/"
+Documentation = "https://github.com/sco1/worktimecalc/blob/main/README.md"
+Repository = "https://github.com/sco1/worktimecalc"
 
-[tool.poetry.dev-dependencies]
-black = "^23.1"
-bump2version = "^1.0"
-flake8 = "^6.0"
-flake8-annotations = "^3.0"
-flake8-bugbear = "^23.1"
-flake8-docstrings = "^1.7"
-flake8-fixme = "^1.1"
-isort = "^5.12"
-mypy = "^1.0"
-pep8-naming = "^0.13"
-pre-commit = "^3.0"
-pytest = "^7.2"
-pytest-check = "^2.1"
-pytest-cov = "^4.0"
-pytest-randomly = "^3.12"
-tox = "^4.4"
+[project.scripts]
+worktimecalc = "worktimecalc:main"
+
+[tool.uv]
+dev-dependencies = [
+    "black~=24.10",
+    "flake8~=7.1",
+    "flake8-annotations~=3.1",
+    "isort~=5.13",
+    "mypy~=1.14",
+    "pre-commit~=4.0",
+    "pytest~=8.3",
+    "pytest-cov~=6.0",
+    "pytest-randomly~=3.16",
+    "ruff~=0.9",
+    "sco1-bumper~=1.0",
+    "tox~=4.23",
+    "tox-uv~=1.17",
+]
 
 [tool.black]
 line-length = 100
+
+[tool.isort]
+case_sensitive = true
+known_first_party = "worktimecalc,tests"
+no_lines_before = "LOCALFOLDER"
+order_by_type = false
+profile = "black"
+line_length = 100
 
 [tool.mypy]
 disallow_incomplete_defs = true
@@ -63,5 +78,5 @@ warn_unused_configs = true
 warn_unused_ignores = true
 
 [build-system]
-requires = ["poetry-core>=1.2"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
