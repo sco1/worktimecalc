@@ -1,7 +1,7 @@
 [![GitHub release](https://img.shields.io/github/release/sco1/worktimecalc.svg)](https://github.com/sco1/worktimecalc/releases/latest)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sco1/worktimecalc/main.svg)](https://results.pre-commit.ci/latest/github/sco1/worktimecalc/main)
 [![lint-and-test](https://github.com/sco1/worktimecalc/actions/workflows/lint_test.yml/badge.svg?branch=main)](https://github.com/sco1/worktimecalc/actions/workflows/lint_test.yml)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
+
 # Worktime Calculator
 Helper CLI for calculating leave & premium hour based on the start & end of the workday.
 
